@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Bu skript cari qovluqdakı gizli olmayan faylların adlarından ilk '-' işarəsindən sonrakı hissəni göstərir
+# Display only the part of filename after first dash, for non-hidden files
 
 for file in *
 do
-  name_after_dash="${file#*-}"
-  if [ "$file" != "$name_after_dash" ]; then
-    echo "$name_after_dash"
+  if [[ "$file" == *-* ]]; then
+    echo "${file#*-}"
   fi
 done
+
