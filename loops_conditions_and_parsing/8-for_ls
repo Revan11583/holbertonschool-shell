@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
-# This script lists non-hidden files, showing only the part after the first dash
+# This script displays filenames in the current directory after the first dash
 
-for file in *  # matches non-hidden files only
-do
-  # Extract part after the first dash using parameter expansion
-  name_after_dash="${file#*-}"
-  # Only display if the filename contains a dash
-  if [ "$file" != "$name_after_dash" ]; then
-    echo "$name_after_dash"
-  fi
+for file in *; do
+  echo "${file#*-}"
 done
