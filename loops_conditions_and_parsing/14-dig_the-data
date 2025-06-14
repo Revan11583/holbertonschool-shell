@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Script to group and count IP + HTTP_CODE occurrences from apache-access.log
+
+awk '{ count[$1 " " $9]++ }
+     END {
+       for (key in count) 
+         print count[key], key
+     }' apache-access.log | sort -rn
